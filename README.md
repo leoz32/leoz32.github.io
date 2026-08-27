@@ -1,27 +1,9 @@
-基于Github Page博客框架（于2019/7月开源）
-======================
+# leoz32.github.io
 
-完全基于前端，不包括任何后台
--------------------------
+Leo（[leoz32](https://github.com/leoz32)）的个人主页。
 
-本套源码主要用到以下几个框架和相关技术：
-  * 使用百度统计来记录和分析用户访问的流量
-  * 使用畅言来实现用户留言功能
-  * 域名使用腾讯云，使用七牛进行访问加速
-  * 视频微处理，以实现在线播放
-  * 使用HTML5、Canvas等完成博客主体的搭建
+- 站点：https://leoz32.github.io/
+- 身份：中国科学院大学学生
+- 内容：单页静态 HTML / CSS，链到公开 GitHub 仓库
 
-* 博客展示效果：https://xiaohegithub.cn/
-* 如何使用这套框架：https://www.zhihu.com/question/59088760/answer/161640592
-
-附
-==
-* cc文件夹下为一套类似相册的demo，以前弄着玩的，展示地址为：https://xiaohegithub.cn/cc/
-* demo文件夹下为一套PPT展示模板，展示地址为：https://xiaohegithub.cn/demo/
-* flashdemo文件夹下为一套有趣的网页特效，展示地址为:https://xiaohegithub.cn/flashdemo/flash
-
-以上文件夹不属于博客主体代码，所以如果觉得不必要，可以删除
------------------------------------------------------
-
-
-
+这是 GitHub Pages 用户站点仓库。发布源是 `main` 分支根目录，合并后会更新线上站点。不要添加自定义 `CNAME`，以免绑到其他域名。
