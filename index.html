@@ -33,6 +33,7 @@
         <a href="#about">关于</a>
         <a href="#projects">项目</a>
         <a href="https://github.com/leoz32">GitHub</a>
+        <a class="nav-resume" href="resume.html">简历</a>
       </nav>
     </header>
 
@@ -62,117 +63,100 @@
       <section class="section" id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">项目</h2>
         <p class="lede">
-          自己写的仓库，以及公开 fork、用来学习或跟进的仓库。每条链接都指向
-          <code>github.com/leoz32/&lt;repo&gt;</code>，没有演示站或论文页。
+          自己写的公开仓库。悬停或用键盘聚焦卡片可查看更完整的说明；链接指向
+          <code>github.com/leoz32/&lt;repo&gt;</code>。
         </p>
 
-        <h3 class="group-label">自己的仓库</h3>
         <div class="grid">
-          <a class="card" href="https://github.com/leoz32/arxiv-daily">
-            <div class="card-top">
+          <article class="card" tabindex="0" aria-labelledby="project-arxiv-daily">
+            <div class="card-summary">
+              <div class="card-top">
+                <h3 id="project-arxiv-daily">arxiv-daily</h3>
+              </div>
+              <p>按主题自动抓取 arXiv 上 RAG、计算机视觉相关论文，并更新列表。</p>
+              <ul class="meta">
+                <li>Python</li>
+                <li>论文追踪</li>
+              </ul>
+            </div>
+            <div class="card-overlay" id="overlay-arxiv-daily">
               <h3>arxiv-daily</h3>
+              <p>
+                用 Python 的 arxiv 库按关键词从 arXiv 抓取新论文。关键词为 RAG、Retrieval-Augmented
+                Generation、Computer Vision；每次每个关键词最多 15 篇，按提交时间排序。结果写入
+                data/papers.json，并据此重写 README 的 Daily Papers 列表；工作流还会导出
+                data/papers.csv。GitHub Actions 可定时或手动运行 fetch_arxiv.py。仓库描述：自动更新 RAG、CV 相关论文。
+              </p>
+              <a href="https://github.com/leoz32/arxiv-daily">在 GitHub 打开</a>
             </div>
-            <p>按主题自动抓取 arXiv 上 RAG、计算机视觉相关论文，并更新列表。</p>
-            <ul class="meta">
-              <li>Python</li>
-              <li>论文追踪</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/Restaurant-Management-System">
-            <div class="card-top">
-              <h3>Restaurant-Management-System</h3>
-            </div>
-            <p>
-              基于 Flask 与 Microsoft Access 的餐厅管理信息系统，覆盖顾客、菜单、库存、订单与报表。
-            </p>
-            <ul class="meta">
-              <li>Python</li>
-              <li>Flask</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/RAG">
-            <div class="card-top">
-              <h3>RAG</h3>
-            </div>
-            <p>
-              面向高等教育问答的 RAG 幻觉评估框架，对照 Non-RAG 与 RAG 两条生成链路。
-            </p>
-            <ul class="meta">
-              <li>Python</li>
-              <li>RAG</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/paper-copilot">
-            <div class="card-top">
-              <h3>paper-copilot</h3>
-            </div>
-            <p>
-              管理学实证研究选题助手：主题分类、候选生成、理论模型与 Markdown 大纲导出。
-            </p>
-            <ul class="meta">
-              <li>TypeScript</li>
-              <li>LLM</li>
-            </ul>
-          </a>
-        </div>
+          </article>
 
-        <h3 class="group-label">学习与关注</h3>
-        <div class="grid">
-          <a class="card" href="https://github.com/leoz32/claude-video">
-            <div class="card-top">
-              <h3>claude-video</h3>
-              <span class="badge">Fork</span>
+          <article class="card" tabindex="0" aria-labelledby="project-rms">
+            <div class="card-summary">
+              <div class="card-top">
+                <h3 id="project-rms">Restaurant-Management-System</h3>
+              </div>
+              <p>
+                基于 Flask 与 Microsoft Access 的餐厅管理信息系统，覆盖顾客、菜单、库存、订单与报表。
+              </p>
+              <ul class="meta">
+                <li>Python</li>
+                <li>Flask</li>
+              </ul>
             </div>
-            <p>给 Claude 看视频：下载、抽帧、转写后再回答问题。</p>
-            <ul class="meta">
-              <li>Agent skill</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/RL.cu">
-            <div class="card-top">
-              <h3>RL.cu</h3>
-              <span class="badge">Fork</span>
+            <div class="card-overlay" id="overlay-Restaurant-Management-System">
+              <h3>Restaurant-Management-System</h3>
+              <p>
+                Flask 餐厅管理信息系统，数据库为 Microsoft Access（.accdb），经 pyodbc 连接。员工可登录登出。仪表盘展示顾客、订单、库存总量、今日订单、近期订单与低库存预警。支持顾客、菜单、库存（关联供应商）、订单、员工的查看与增删改。报表包括销售、顾客、菜品、库存、员工、财务概览、季节性销售与食物浪费分析，并可用 Pandas / NumPy 按历史数据做简单销量与客流预测。前端为 HTML / CSS / JavaScript（Jinja2），缓存为 Flask-Caching SimpleCache。应用入口是 TESY.py。
+              </p>
+              <a href="https://github.com/leoz32/Restaurant-Management-System">在 GitHub 打开</a>
             </div>
-            <p>用 CUDA / C++ 做大语言模型的 RLVR 训练。</p>
-            <ul class="meta">
-              <li>CUDA</li>
-              <li>RL</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/SearchClaw">
-            <div class="card-top">
-              <h3>SearchClaw</h3>
-              <span class="badge">Fork</span>
+          </article>
+
+          <article class="card" tabindex="0" aria-labelledby="project-rag">
+            <div class="card-summary">
+              <div class="card-top">
+                <h3 id="project-rag">RAG</h3>
+              </div>
+              <p>
+                面向高等教育问答的 RAG 幻觉评估框架，对照 Non-RAG 与 RAG 两条生成链路。
+              </p>
+              <ul class="meta">
+                <li>Python</li>
+                <li>RAG</li>
+              </ul>
             </div>
-            <p>自主搜索、阅读并综合带引用答案的研究型 agent harness。</p>
-            <ul class="meta">
-              <li>Agent</li>
-              <li>检索</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/pyre-code">
-            <div class="card-top">
-              <h3>pyre-code</h3>
-              <span class="badge">Fork</span>
+            <div class="card-overlay" id="overlay-RAG">
+              <h3>RAG</h3>
+              <p>
+                面向高等教育知识问答的研究型 RAG 幻觉评估框架，用来比较 Non-RAG baseline 与 RAG 两条生成链路，而不是做成在线问答产品。流程覆盖语料准备、知识切分、索引构建、混合检索、双链路生成、自动评测与结果汇总。检索融合稠密向量、BM25 与 RRF。主线任务基于 OpenStax 教材问答；另有 FActScore 长文本事实生成作为补充验证。配置示例使用 deepseek-chat（temperature 0）做生成，嵌入可用 BAAI/bge-m3，评测可走 RAGAS 与 FActScore。
+              </p>
+              <a href="https://github.com/leoz32/RAG">在 GitHub 打开</a>
             </div>
-            <p>本地机器学习编码练习平台：从 ReLU 到 flow matching，浏览器里即时评测。</p>
-            <ul class="meta">
-              <li>ML</li>
-              <li>练习</li>
-            </ul>
-          </a>
-          <a class="card" href="https://github.com/leoz32/chinese-buy-us-stock-guide">
-            <div class="card-top">
-              <h3>chinese-buy-us-stock-guide</h3>
-              <span class="badge">Fork</span>
+          </article>
+
+          <article class="card" tabindex="0" aria-labelledby="project-paper-copilot">
+            <div class="card-summary">
+              <div class="card-top">
+                <h3 id="project-paper-copilot">paper-copilot</h3>
+              </div>
+              <p>
+                管理学实证研究选题助手：主题分类、候选生成、理论模型与 Markdown 大纲导出。
+              </p>
+              <ul class="meta">
+                <li>TypeScript</li>
+                <li>LLM</li>
+              </ul>
             </div>
-            <p>面向中国大陆读者的美股开户、税务与合规科普，不构成投资建议。</p>
-            <ul class="meta">
-              <li>指南</li>
-            </ul>
-          </a>
+            <div class="card-overlay" id="overlay-paper-copilot">
+              <h3>paper-copilot</h3>
+              <p>
+                管理学实证研究选题助手的 MVP：选题构思、PROCESS 风格模型构建，以及面向中文核心期刊的候选排序。当前能把输入主题分成强支持或通用模式，生成 8 个研究候选，将其中一个扩展为带假设的理论模型，并导出 Markdown 大纲。强支持领域包括数字化 / AI / 算法管理、组织支持 / 压力、创新 / 知识分享 / 建言。技术栈为 TypeScript。支持 OpenAI 兼容 API（如 OpenAI、DeepSeek、通义兼容网关）；未提供 API key 时回退到确定性本地 stub。密钥可写在 .env.local，或在前端设置面板填写并保存在浏览器 localStorage。首页带 LLM 设置，另有 /settings，可用「测试连接」调用 /api/test-llm。
+              </p>
+              <a href="https://github.com/leoz32/paper-copilot">在 GitHub 打开</a>
+            </div>
+          </article>
         </div>
-        <p class="note">Fork 仓库保留原作者信息；此处只链到我的公开副本。</p>
       </section>
     </main>
 

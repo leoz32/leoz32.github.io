@@ -105,6 +105,7 @@ a {
 
 .nav {
   display: flex;
+  align-items: center;
   gap: 1.1rem;
   font-size: 0.92rem;
 }
@@ -115,8 +116,13 @@ a {
 }
 
 .nav a:hover,
-.nav a:focus-visible {
+.nav a:focus-visible,
+.nav a[aria-current="page"] {
   color: var(--ink);
+}
+
+.nav-resume {
+  margin-left: 0.35rem;
 }
 
 .hero {
@@ -211,25 +217,16 @@ h1 {
   max-width: 42rem;
 }
 
-.group-label {
-  margin: 0 0 0.8rem;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.group-label + .grid + .group-label {
-  margin-top: 1.8rem;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
   gap: 0.9rem;
+  overflow: visible;
+  isolation: isolate;
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -239,12 +236,20 @@ h1 {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-decoration: none;
+  overflow: visible;
+  z-index: 0;
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
 .card:hover,
-.card:focus-visible {
+.card:focus-visible,
+.card:focus-within {
+  z-index: 4;
   border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+}
+
+.card:hover,
+.card:focus-visible {
   transform: translateY(-2px);
 }
 
@@ -262,6 +267,47 @@ h1 {
   letter-spacing: -0.01em;
 }
 
+.card-summary p,
+.card-overlay p {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card-summary p {
+  flex: 1;
+}
+
+.card-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  min-height: 100%;
+  padding: 1.15rem 1.2rem 1.2rem;
+  background: var(--bg-elevated);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(28, 42, 36, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.card:hover .card-overlay,
+.card:focus-within .card-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.card-overlay a {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
 .badge {
   flex: none;
   padding: 0.1rem 0.45rem;
@@ -270,13 +316,6 @@ h1 {
   color: var(--accent);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
-}
-
-.card p {
-  margin: 0 0 0.9rem;
-  color: var(--muted);
-  font-size: 0.95rem;
-  flex: 1;
 }
 
 .meta {
@@ -326,6 +365,11 @@ h1 {
 
 .page-404 h1 {
   font-size: clamp(2rem, 6vw, 3.2rem);
+}
+
+.resume-page {
+  padding: 3.2rem 0 5rem;
+  min-height: 60vh;
 }
 
 @media (max-width: 640px) {
